@@ -44,9 +44,9 @@ public class main {
         }
 
         // Exercício 06
-        Scanner scanner = new Scanner(System.in);
+        Scanner leitor = new Scanner(System.in);
         System.out.print("Digite o nome de um produto para procurar: ");
-        String nomeBusca = scanner.nextLine();
+        String nomeBusca = leitor.nextLine();
         if (produtos.contains(nomeBusca)) {
             System.out.println("Produto encontrado!");
         } else {
@@ -66,11 +66,9 @@ public class main {
             System.out.println(nome + " tem " + idade + " anos.");
         }
 
-        scanner.close();
-
         // Exercício 08
         System.out.print("Digite o nome de uma pessoa para buscar a idade: ");
-        String nomeProcurado = scanner.nextLine();
+        String nomeProcurado = leitor.nextLine();
         if (pessoas.containsKey(nomeProcurado)) {
             System.out.println(nomeProcurado + " tem " + pessoas.get(nomeProcurado) + " anos.");
         } else {
@@ -88,7 +86,7 @@ public class main {
         }
 
         System.out.print("Digite um nome para buscar (ex: Nome9999): ");
-        String nomeBuscaPerformance = scanner.nextLine();
+        String nomeBuscaPerformance = leitor.nextLine();
 
         long inicioLista = System.currentTimeMillis();
         for (String nome : listaNomes) {
@@ -110,20 +108,20 @@ public class main {
 
         do {
             System.out.print("Digite o código do produto (número): ");
-            int codigo = scanner.nextInt();
-            scanner.nextLine();
+            int codigo = leitor.nextInt();
+            leitor.nextLine();
 
             System.out.print("Digite o nome do produto: ");
-            String nomeProduto = scanner.nextLine();
+            String nomeProduto = leitor.nextLine();
 
             cadastroProdutos.put(codigo, nomeProduto);
 
             System.out.print("Deseja cadastrar outro produto? (s/n): ");
-            continuar = scanner.nextLine();
+            continuar = leitor.nextLine();
         } while (continuar.equalsIgnoreCase("s"));
 
         System.out.print("Digite o código de um produto para buscar: ");
-        int codigoBusca = scanner.nextInt();
+        int codigoBusca = leitor.nextInt();
 
         if (cadastroProdutos.containsKey(codigoBusca)) {
             System.out.println("Produto encontrado: " + cadastroProdutos.get(codigoBusca));
@@ -136,5 +134,6 @@ public class main {
             System.out.println("Código: " + codigo + " - Produto: " + cadastroProdutos.get(codigo));
         }
 
+        leitor.close();
     }
 }
